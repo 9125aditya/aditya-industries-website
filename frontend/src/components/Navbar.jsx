@@ -2,59 +2,62 @@ import { useState } from "react"
 
 function Navbar() {
 
-const [menuOpen,setMenuOpen] = useState(false)
+  const [menuOpen,setMenuOpen] = useState(false)
 
-return (
+  return (
 
-<nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/70 text-white">
+    <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/80 text-white">
 
-<div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 flex justify-between items-center py-5">
 
-<h1 className="text-xl font-bold text-red-500">
-ADITYA INDUSTRIES
-</h1>
+        {/* Logo */}
+        <h1 className="text-xl lg:text-2xl font-bold tracking-wide">
+          <span className="text-red-500">ADITYA</span> INDUSTRIES
+        </h1>
 
-{/* Desktop Menu */}
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-10 text-sm lg:text-base font-medium">
 
-<ul className="hidden md:flex gap-8">
+          <li><a href="#home" className="hover:text-red-500">HOME</a></li>
+          <li><a href="#about" className="hover:text-red-500">ABOUT</a></li>
+          <li><a href="#services" className="hover:text-red-500">SERVICES</a></li>
+          <li><a href="#contact" className="hover:text-red-500">CONTACT</a></li>
 
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#contact">Contact</a></li>
+        </ul>
 
-</ul>
+        {/* CTA Button */}
+        <a
+          href="#contact"
+          className="hidden md:block bg-red-500 px-5 py-2 text-sm font-semibold rounded hover:bg-red-600"
+        >
+          Get Quote
+        </a>
 
-{/* Mobile Button */}
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={()=>setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
 
-<button
-className="md:hidden text-2xl"
-onClick={()=>setMenuOpen(!menuOpen)}
->
-☰
-</button>
+      </div>
 
-</div>
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-black text-center py-5 space-y-4">
 
-{/* Mobile Menu */}
+          <a href="#home" className="block">Home</a>
+          <a href="#about" className="block">About</a>
+          <a href="#services" className="block">Services</a>
+          <a href="#contact" className="block">Contact</a>
 
-{menuOpen && (
+        </div>
+      )}
 
-<div className="md:hidden bg-black text-center py-4 space-y-4">
+    </nav>
 
-<a href="#home" className="block">Home</a>
-<a href="#about" className="block">About</a>
-<a href="#services" className="block">Services</a>
-<a href="#contact" className="block">Contact</a>
-
-</div>
-
-)}
-
-</nav>
-
-)
-
+  )
 }
 
 export default Navbar
