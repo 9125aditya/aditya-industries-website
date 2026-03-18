@@ -1,4 +1,3 @@
-import sendEmail from "../utils/sendEmail.js"
 import Contact from "../models/Contact.js"
 
 export const createContact = async (req,res) => {
