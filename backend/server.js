@@ -9,24 +9,12 @@ connectDB()
 
 const app = express()
 
-// ✅ SIMPLE CORS
+// ✅ SIMPLE CORS (THIS IS ENOUGH)
 app.use(cors())
-
-// ✅ MANUAL HEADERS (fixes preflight)
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization")
-  next()
-})
-
-// ✅ OPTIONS handler
-app.options("/*", (req, res) => {
-  res.sendStatus(200)
-})
 
 app.use(express.json())
 
+// Routes
 app.use("/api", contactRoutes)
 
 app.get("/", (req,res)=>{
