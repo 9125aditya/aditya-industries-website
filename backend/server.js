@@ -12,14 +12,16 @@ const app = express()
 
 
 
-app.use(cors())
+app.use(cors({
+    origin: "*",
+}))
 app.use(express.json())
 
 // Middleware
 app.use("/api/contact", contactRoutes)
 
 app.get("/", (req,res)=>{
-    res.send("Aditya Industries API Running")
+  res.send("API Running")
 })
 
 const PORT = process.env.PORT || 5000

@@ -25,7 +25,7 @@ e.preventDefault()
 
 try{
 
-await axios.post("http://localhost:8081/api/contact",formData)
+await axios.post("https://aditya-backend.onrender.com/api/contact", formData)
 
 alert("Message Sent Successfully")
 

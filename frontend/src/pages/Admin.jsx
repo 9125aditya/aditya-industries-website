@@ -7,7 +7,7 @@ function Admin() {
 
   useEffect(() => {
 
-    axios.get("http://localhost:8081/api/contact")
+    axios.get("https://aditya-backend.onrender.com/api/contact")
     .then(res => {
       setContacts(res.data.data)
     })
