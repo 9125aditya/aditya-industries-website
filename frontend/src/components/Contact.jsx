@@ -35,7 +35,7 @@ function Contact() {
       setLoading(true)
 
       await axios.post(
-        "https://aditya-backend.onrender.com/api/contact",
+        "https://aditya-industries-backend.onrender.com/api/contact",
         formData,
         {
           headers: {
