@@ -15,7 +15,7 @@ export const createContact = async (req,res) => {
     })
 
     await contact.save()
-    await sendEmail({ name, email, phone, message })
+    // await sendEmail({ name, email, phone, message })
 
     res.status(201).json({
       message: "Query submitted successfully"
