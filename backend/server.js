@@ -9,20 +9,22 @@ connectDB()
 
 const app = express()
 
-
+// ✅ SIMPLE CORS (works for Vercel + browser)
 app.use(cors())
 
+// ✅ JSON parser
 app.use(express.json())
 
 // Routes
 app.use("/api", contactRoutes)
 
-app.get("/", (req,res)=>{
+// Test route
+app.get("/", (req, res) => {
   res.send("API Running")
 })
 
 const PORT = process.env.PORT || 5000
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
