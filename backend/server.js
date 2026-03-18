@@ -10,13 +10,16 @@ connectDB()
 
 const app = express()
 
+// ✅ CORS FIX
 app.use(cors({
-  origin: "*",
+  origin: "https://aditya-industries-website.vercel.app",
+  methods: ["GET", "POST"],
+  credentials: true
 }))
 
 app.use(express.json())
 
-// ✅ FIXED
+// Routes
 app.use("/api", contactRoutes)
 
 app.get("/", (req,res)=>{
@@ -26,5 +29,5 @@ app.get("/", (req,res)=>{
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, ()=>{
-  console.log(`Server up and running on port ${PORT}`)
+  console.log(`Server is up and running on port https://localhost:${PORT}`)
 })
