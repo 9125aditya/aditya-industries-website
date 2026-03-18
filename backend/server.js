@@ -10,15 +10,14 @@ connectDB()
 
 const app = express()
 
-
-
 app.use(cors({
-    origin: "*",
+  origin: "*",
 }))
+
 app.use(express.json())
 
-// Middleware
-app.use("/api/contact", contactRoutes)
+// ✅ FIXED
+app.use("/api", contactRoutes)
 
 app.get("/", (req,res)=>{
   res.send("API Running")
@@ -27,5 +26,5 @@ app.get("/", (req,res)=>{
 const PORT = process.env.PORT || 5000
 
 app.listen(PORT, ()=>{
-    console.log(`Server up andrunning on port http://localhost:${PORT}`)
+  console.log(`Server up and running on port ${PORT}`)
 })
