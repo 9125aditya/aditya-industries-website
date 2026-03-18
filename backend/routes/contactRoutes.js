@@ -3,7 +3,8 @@ import { createContact, getContacts } from "../controllers/contactController.js"
 
 const router = express.Router()
 
-router.post("/",createContact)
-router.get("/",getContacts)
+
+router.post("/contact", createContact)
+router.get("/contact", getContacts)
 
 export default router
